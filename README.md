@@ -13,10 +13,21 @@ The workflow tunes a balanced Logistic Regression baseline and a balanced Random
 - [`src/hospital_readmission_model.py`](src/hospital_readmission_model.py) — audited modelling pipeline.
 - [`tests/test_smoke.py`](tests/test_smoke.py) — lightweight tests for target detection and metric reporting.
 - [`.github/workflows/ci.yml`](.github/workflows/ci.yml) — automated Python 3.12 CI.
-- [`hospital_readmissions.csv`](hospital_readmissions.csv) — project dataset.
+- [`hospital_readmissions.csv`](hospital_readmissions.csv) — 25,000-row teaching/project derivative described below.
 - [`requirements.txt`](requirements.txt) — pinned Python dependencies used by CI.
 - [`archive/`](archive/) — historical modelling/exploration notebooks retained for provenance.
 - `hospital_1.jfif` through `hospital_5.jpg` — supporting historical presentation assets.
+
+## Dataset provenance
+
+The committed 25,000-row, 17-column table is a reduced/recoded teaching derivative of the **Diabetes 130-US Hospitals for Years 1999–2008** dataset. The authoritative source dataset is maintained by the UCI Machine Learning Repository:
+
+- UCI dataset: https://archive.ics.uci.edu/dataset/296/diabetes+130+us+hospitals+for+years+1999+2008
+- DOI: https://doi.org/10.24432/C5230J
+- Original creators: John Clore, Krzysztof Cios, Jon DeShazo and Beata Strack
+- UCI license: CC BY 4.0
+
+The UCI source contains 101,766 encounters and a substantially larger original feature set. This repository's 25,000-row/17-column CSV uses grouped/reduced fields such as `diag_1`–`diag_3`, `glucose_test`, `A1Ctest`, `diabetes_med` and a binary `readmitted` outcome. The exact historical sampling/recoding recipe that produced this teaching derivative is **not documented in the repository**, so the project does not claim that `hospital_readmissions.csv` can be reconstructed bit-for-bit from the UCI download. The original UCI source should be cited when discussing the underlying clinical dataset, while this committed derivative should be treated as the exact modelling input for this portfolio workflow.
 
 ## Validation design
 
